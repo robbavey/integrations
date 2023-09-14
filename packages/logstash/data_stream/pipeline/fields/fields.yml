@@ -1,0 +1,47 @@
+- name: logstash.pipeline
+  type: group
+  description: Logstash pipeline metrics
+  fields:
+    - name: id
+      type: keyword
+      description: Logstash Pipeline id/name
+    - name: hash
+      type: wildcard
+      description: Logstash Pipeline hash
+    - name: total
+      type: group
+      description: Total metrics on Logstash Pipeline
+      fields:
+        - name: events.in
+          type: long
+          description: Number of events received by the pipeline
+        - name: events.out
+          type: long
+          description: Number of events emitted by the pipeline
+        - name: time.duration.ms
+          type: long
+          description: Time spent processing events through the pipeline.
+        - name: time.queue_push_duration.ms
+          type: long
+          description: Time spent pushing events to the queue for this pipeline.
+        - name: reloads.success
+          type: long
+          description: Number of successful reloads for this pipeline
+        - name: reloads.failed
+          type: long
+          description: Number of failed reloads for this pipeline
+        - name: queues
+          type: group
+          fields:
+            - name: type
+              type: keyword
+              description: Type of queue - persistent or memory
+            - name: events
+              type: long
+              description: Number of events in the PQ for this pipeline
+            - name: current_size.bytes
+              type: long
+              description: Current size of the PQ
+            - name: max_size.bytes
+              type: long
+              description: Maximum possible size of the PQ

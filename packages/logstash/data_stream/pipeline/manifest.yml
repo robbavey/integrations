@@ -1,0 +1,19 @@
+type: metrics
+title: Logstash pipeline
+elasticsearch:
+  index_template:
+    mappings:
+      dynamic: true
+streams:
+  - input: cel
+    enabled: true
+    title: "Collect Pipeline Stats using CEL Input"
+    description: "Collect Pipeline Stats using CEL Input"
+    template_path: stream.yml.hbs
+    vars:
+      - name: url
+        type: text
+        title: Logstash URL
+        show_user: true
+        required: false
+        default: http://localhost:9602/_node/stats?pretty=true

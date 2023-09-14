@@ -1,4 +1,10 @@
 # newer versions go on top
+- version: "2.3.5"
+  changes:
+    - description: Introduce Logstash pipelines
+      type: enhancement
+      link: https://github.com/elastic/integrations/pull/7704
+
 - version: "2.3.3"
   changes:
     - description: Introduce Logstash node dashboards into integration package
