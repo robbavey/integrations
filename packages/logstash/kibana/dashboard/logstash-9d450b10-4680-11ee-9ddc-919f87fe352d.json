@@ -43,7 +43,7 @@
                         "id": "",
                         "params": {
                             "fontSize": 12,
-                            "markdown": "**Navigation** \n\n**Logstash Overview**\n\n[Overview](/app/dashboards#/view/logstash-79270240-48ee-11ee-8cb5-99927777c522)  \n[Nodes Overview](/app/dashboards#/view/logstash-ee860840-41ed-11ee-874b-fdb94cc3273a)  \n**[Node Overview](/app/dashboards#/view/logstash-9d450b10-4680-11ee-9ddc-919f87fe352d)**  \n[Node Overview Advanced View](/app/dashboards#/view/logstash-a42d7060-45e6-11ee-957b-3720c0b0fbc5)  \n\nOverview\n\nThis Dashboard gives a view of the overall performance of a single Logstash Node. Should be used in conjunction with the node name\nfilter",
+                            "markdown": "**Navigation** \n\n**Logstash Overview**\n\n[Overview](/app/dashboards#/view/logstash-79270240-48ee-11ee-8cb5-99927777c522)  \n[Nodes Overview](/app/dashboards#/view/logstash-ee860840-41ed-11ee-874b-fdb94cc3273a)  \n**[Node Overview](/app/dashboards#/view/logstash-9d450b10-4680-11ee-9ddc-919f87fe352d)**  \n[Node Overview Advanced View](/app/dashboards#/view/logstash-a42d7060-45e6-11ee-957b-3720c0b0fbc5)  \n\n\n[Pipelines Overview](/app/dashboards#/view/logstash-c0594170-526a-11ee-9ecc-31444cb79548)  \n[Pipeline Detail Overview](/app/dashboards#/view/logstash-79270240-48ee-11ee-8cb5-99927777c522)\n\n\nOverview\n\nThis Dashboard gives a view of the overall performance of a single Logstash Node. Should be used in conjunction with the node name\nfilter",
                             "openLinksInNewTab": false
                         },
                         "title": "",
@@ -52,7 +52,7 @@
                     }
                 },
                 "gridData": {
-                    "h": 31,
+                    "h": 38,
                     "i": "c2c433cf-50ce-4530-86e5-f82a240c57b8",
                     "w": 8,
                     "x": 0,
@@ -60,7 +60,7 @@
                 },
                 "panelIndex": "c2c433cf-50ce-4530-86e5-f82a240c57b8",
                 "type": "visualization",
-                "version": "8.7.1"
+                "version": "8.10.1"
             },
             {
                 "embeddableConfig": {
@@ -347,7 +347,7 @@
                 "panelIndex": "73a755c6-89a3-4f34-8daf-83feef5caa28",
                 "title": "",
                 "type": "lens",
-                "version": "8.7.1"
+                "version": "8.10.1"
             },
             {
                 "embeddableConfig": {
@@ -505,7 +505,7 @@
                 "panelIndex": "63747092-edb6-4864-a9ad-27e5bdce2ad2",
                 "title": "Events Received Rate (/s)",
                 "type": "lens",
-                "version": "8.7.1"
+                "version": "8.10.1"
             },
             {
                 "embeddableConfig": {
@@ -673,7 +673,7 @@
                 "panelIndex": "9ea7a32a-ee7e-45d4-b0cf-273278e52cae",
                 "title": "JVM Heap (MB)",
                 "type": "lens",
-                "version": "8.7.1"
+                "version": "8.10.1"
             },
             {
                 "embeddableConfig": {
@@ -831,7 +831,7 @@
                 "panelIndex": "bac81244-9c35-4cf9-8ed4-3c7082a255ae",
                 "title": "Events Emitted Rate (/s)",
                 "type": "lens",
-                "version": "8.7.1"
+                "version": "8.10.1"
             },
             {
                 "embeddableConfig": {
@@ -971,7 +971,7 @@
                 "panelIndex": "5a43f153-bec9-4420-96f8-0c2d4b032a43",
                 "title": "Process CPU Utilization (%)",
                 "type": "lens",
-                "version": "8.7.1"
+                "version": "8.10.1"
             },
             {
                 "embeddableConfig": {
@@ -1203,7 +1203,7 @@
                 "panelIndex": "5af28ec8-a9f0-49cb-9627-e13c0ac5ca1d",
                 "title": "Events Latency (ms)",
                 "type": "lens",
-                "version": "8.7.1"
+                "version": "8.10.1"
             },
             {
                 "embeddableConfig": {
@@ -1343,19 +1343,230 @@
                 "panelIndex": "c6fb1dc0-c51d-4c00-903c-d90ad3b77ce1",
                 "title": "System Load",
                 "type": "lens",
-                "version": "8.7.1"
+                "version": "8.10.1"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logstash-sm-metrics",
+                                "name": "indexpattern-datasource-layer-2fb7e546-2fca-4965-a4d3-dcc063be3ded",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "layers": {
+                                        "2fb7e546-2fca-4965-a4d3-dcc063be3ded": {
+                                            "columnOrder": [
+                                                "2d3cd5ec-a0d0-4569-8c05-ea9f847a3623",
+                                                "0c0ae432-64ed-4792-b539-c195c3d96549",
+                                                "ca4b5da2-8007-4f89-8261-9081ee13cdd5"
+                                            ],
+                                            "columns": {
+                                                "0c0ae432-64ed-4792-b539-c195c3d96549": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "filter": {
+                                                        "language": "kuery",
+                                                        "query": "logstash.pipeline.total.events.out: *"
+                                                    },
+                                                    "isBucketed": false,
+                                                    "label": "Total Events Emitted",
+                                                    "operationType": "last_value",
+                                                    "params": {
+                                                        "sortField": "@timestamp"
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "logstash.pipeline.total.events.out"
+                                                },
+                                                "2d3cd5ec-a0d0-4569-8c05-ea9f847a3623": {
+                                                    "customLabel": true,
+                                                    "dataType": "string",
+                                                    "isBucketed": true,
+                                                    "label": "Pipeline Name",
+                                                    "operationType": "terms",
+                                                    "params": {
+                                                        "exclude": [],
+                                                        "excludeIsRegex": false,
+                                                        "include": [],
+                                                        "includeIsRegex": false,
+                                                        "missingBucket": false,
+                                                        "orderBy": {
+                                                            "columnId": "0c0ae432-64ed-4792-b539-c195c3d96549",
+                                                            "type": "column"
+                                                        },
+                                                        "orderDirection": "desc",
+                                                        "otherBucket": true,
+                                                        "parentFormat": {
+                                                            "id": "terms"
+                                                        },
+                                                        "size": 100
+                                                    },
+                                                    "scale": "ordinal",
+                                                    "sourceField": "logstash.pipeline.name"
+                                                },
+                                                "ca4b5da2-8007-4f89-8261-9081ee13cdd5": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "filter": {
+                                                        "language": "kuery",
+                                                        "query": "logstash.pipeline.total.events.in: *"
+                                                    },
+                                                    "isBucketed": false,
+                                                    "label": "Total Events In",
+                                                    "operationType": "last_value",
+                                                    "params": {
+                                                        "sortField": "@timestamp"
+                                                    },
+                                                    "scale": "ratio",
+                                                    "sourceField": "logstash.pipeline.total.events.in"
+                                                }
+                                            },
+                                            "incompleteColumns": {},
+                                            "sampling": 1
+                                        }
+                                    }
+                                },
+                                "textBased": {
+                                    "layers": {}
+                                }
+                            },
+                            "filters": [],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": ""
+                            },
+                            "visualization": {
+                                "columns": [
+                                    {
+                                        "alignment": "center",
+                                        "columnId": "2d3cd5ec-a0d0-4569-8c05-ea9f847a3623",
+                                        "isTransposed": false
+                                    },
+                                    {
+                                        "alignment": "center",
+                                        "colorMode": "cell",
+                                        "columnId": "0c0ae432-64ed-4792-b539-c195c3d96549",
+                                        "isTransposed": false,
+                                        "palette": {
+                                            "name": "positive",
+                                            "params": {
+                                                "stops": [
+                                                    {
+                                                        "color": "#d6e9e4",
+                                                        "stop": 20
+                                                    },
+                                                    {
+                                                        "color": "#aed3ca",
+                                                        "stop": 40
+                                                    },
+                                                    {
+                                                        "color": "#85bdb1",
+                                                        "stop": 60
+                                                    },
+                                                    {
+                                                        "color": "#5aa898",
+                                                        "stop": 80
+                                                    },
+                                                    {
+                                                        "color": "#209280",
+                                                        "stop": 100
+                                                    }
+                                                ]
+                                            },
+                                            "type": "palette"
+                                        }
+                                    },
+                                    {
+                                        "alignment": "center",
+                                        "colorMode": "cell",
+                                        "columnId": "ca4b5da2-8007-4f89-8261-9081ee13cdd5",
+                                        "isTransposed": false,
+                                        "palette": {
+                                            "name": "positive",
+                                            "params": {
+                                                "stops": [
+                                                    {
+                                                        "color": "#d6e9e4",
+                                                        "stop": 20
+                                                    },
+                                                    {
+                                                        "color": "#aed3ca",
+                                                        "stop": 40
+                                                    },
+                                                    {
+                                                        "color": "#85bdb1",
+                                                        "stop": 60
+                                                    },
+                                                    {
+                                                        "color": "#5aa898",
+                                                        "stop": 80
+                                                    },
+                                                    {
+                                                        "color": "#209280",
+                                                        "stop": 100
+                                                    }
+                                                ]
+                                            },
+                                            "type": "palette"
+                                        }
+                                    }
+                                ],
+                                "layerId": "2fb7e546-2fca-4965-a4d3-dcc063be3ded",
+                                "layerType": "data"
+                            }
+                        },
+                        "visualizationType": "lnsDatatable"
+                    },
+                    "enhancements": {
+                        "dynamicActions": {
+                            "events": [
+                                {
+                                    "action": {
+                                        "config": {
+                                            "openInNewTab": false,
+                                            "useCurrentDateRange": true,
+                                            "useCurrentFilters": true
+                                        },
+                                        "factoryId": "DASHBOARD_TO_DASHBOARD_DRILLDOWN",
+                                        "name": "Go to Dashboard"
+                                    },
+                                    "eventId": "32da855b-5a16-4271-8e06-938568d20659",
+                                    "triggers": [
+                                        "FILTER_TRIGGER"
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "hidePanelTitles": false
+                },
+                "gridData": {
+                    "h": 7,
+                    "i": "87bc08bb-a0ca-4f82-8943-a141aaef3248",
+                    "w": 40,
+                    "x": 8,
+                    "y": 31
+                },
+                "panelIndex": "87bc08bb-a0ca-4f82-8943-a141aaef3248",
+                "title": "Running Pipelines",
+                "type": "lens",
+                "version": "8.10.1"
             }
         ],
         "timeRestore": false,
         "title": "[Metrics Logstash] Single Node Overview",
         "version": 1
     },
-    "coreMigrationVersion": "8.7.1",
-    "created_at": "2023-09-08T17:43:03.843Z",
+    "coreMigrationVersion": "8.8.0",
+    "created_at": "2023-09-22T14:40:17.687Z",
     "id": "logstash-9d450b10-4680-11ee-9ddc-919f87fe352d",
-    "migrationVersion": {
-        "dashboard": "8.7.0"
-    },
+    "managed": true,
     "references": [
         {
             "id": "logstash-sm-metrics",
@@ -1394,9 +1605,20 @@
         },
         {
             "id": "logstash-sm-metrics",
+            "name": "87bc08bb-a0ca-4f82-8943-a141aaef3248:indexpattern-datasource-layer-2fb7e546-2fca-4965-a4d3-dcc063be3ded",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logstash-e6ce6410-53f6-11ee-9902-d13957058664",
+            "name": "87bc08bb-a0ca-4f82-8943-a141aaef3248:drilldown:DASHBOARD_TO_DASHBOARD_DRILLDOWN:32da855b-5a16-4271-8e06-938568d20659:dashboardId",
+            "type": "dashboard"
+        },
+        {
+            "id": "logstash-sm-metrics",
             "name": "controlGroup_f8b74dd1-8785-4fff-96ba-8d8cfb7615eb:optionsListDataView",
             "type": "index-pattern"
         }
     ],
-    "type": "dashboard"
+    "type": "dashboard",
+    "typeMigrationVersion": "8.9.0"
 }

@@ -36,7 +36,7 @@
                         "id": "",
                         "params": {
                             "fontSize": 12,
-                            "markdown": "**Navigation** \n\n**Logstash Overview**\n\n[Overview](/app/dashboards#/view/logstash-79270240-48ee-11ee-8cb5-99927777c522)  \n**[Nodes Overview](/app/dashboards#/view/logstash-ee860840-41ed-11ee-874b-fdb94cc3273a)**  \n[Node Overview](/app/dashboards#/view/logstash-9d450b10-4680-11ee-9ddc-919f87fe352d)  \n[Node Overview Advanced View](/app/dashboards#/view/logstash-a42d7060-45e6-11ee-957b-3720c0b0fbc5)  \n\nOverview\n\nThis Dashboard gives an overall view of Logstash Nodes",
+                            "markdown": "**Navigation** \n\n**Logstash Overview**\n\n[Overview](/app/dashboards#/view/logstash-79270240-48ee-11ee-8cb5-99927777c522)  \n**[Nodes Overview](/app/dashboards#/view/logstash-ee860840-41ed-11ee-874b-fdb94cc3273a)**  \n[Node Overview](/app/dashboards#/view/logstash-9d450b10-4680-11ee-9ddc-919f87fe352d)  \n[Node Overview Advanced View](/app/dashboards#/view/logstash-a42d7060-45e6-11ee-957b-3720c0b0fbc5)  \n\n\n[Pipelines Overview](/app/dashboards#/view/logstash-c0594170-526a-11ee-9ecc-31444cb79548)  \n[Pipeline Detail Overview](/app/dashboards#/view/logstash-79270240-48ee-11ee-8cb5-99927777c522)\n\n\nOverview\n\nThis Dashboard gives an overall view of Logstash Nodes",
                             "openLinksInNewTab": false
                         },
                         "title": "",
@@ -53,7 +53,7 @@
                 },
                 "panelIndex": "3175d525-4aa7-40b5-bc68-d89d105257de",
                 "type": "visualization",
-                "version": "8.7.1"
+                "version": "8.10.1"
             },
             {
                 "embeddableConfig": {
@@ -125,7 +125,7 @@
                 "panelIndex": "8302492d-1d16-4955-91cd-c892d7002dbb",
                 "title": "Node Count",
                 "type": "lens",
-                "version": "8.7.1"
+                "version": "8.10.1"
             },
             {
                 "embeddableConfig": {
@@ -236,7 +236,7 @@
                 "panelIndex": "345f1c7e-4b91-4df2-8c09-22d2a8c5d6be",
                 "title": "Total JVM Heap Used",
                 "type": "lens",
-                "version": "8.7.1"
+                "version": "8.10.1"
             },
             {
                 "embeddableConfig": {
@@ -343,7 +343,7 @@
                 "panelIndex": "b1f30ec6-50f8-4fb0-8ebf-c00b1df332ee",
                 "title": "Total Events Received",
                 "type": "lens",
-                "version": "8.7.1"
+                "version": "8.10.1"
             },
             {
                 "embeddableConfig": {
@@ -450,7 +450,7 @@
                 "panelIndex": "5eedee54-06fd-496e-8b1d-b3df3ff80341",
                 "title": "Total Events Emitted",
                 "type": "lens",
-                "version": "8.7.1"
+                "version": "8.10.1"
             },
             {
                 "embeddableConfig": {
@@ -893,19 +893,17 @@
                 },
                 "panelIndex": "4a093412-9812-433a-bf8d-225e4a402339",
                 "type": "lens",
-                "version": "8.7.1"
+                "version": "8.10.1"
             }
         ],
         "timeRestore": false,
         "title": "[Metrics Logstash] Nodes Overview",
         "version": 1
     },
-    "coreMigrationVersion": "8.7.1",
-    "created_at": "2023-09-08T17:27:49.263Z",
+    "coreMigrationVersion": "8.8.0",
+    "created_at": "2023-09-22T14:40:17.687Z",
     "id": "logstash-ee860840-41ed-11ee-874b-fdb94cc3273a",
-    "migrationVersion": {
-        "dashboard": "8.7.0"
-    },
+    "managed": true,
     "references": [
         {
             "id": "logstash-sm-metrics",
@@ -938,5 +936,6 @@
             "type": "dashboard"
         }
     ],
-    "type": "dashboard"
+    "type": "dashboard",
+    "typeMigrationVersion": "8.9.0"
 }

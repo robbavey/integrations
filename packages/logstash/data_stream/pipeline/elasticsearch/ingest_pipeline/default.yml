@@ -1,0 +1,344 @@
+---
+description: "Pipeline for Logstash Pipeline monitoring"
+
+processors:
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.queue_backpressure.lifetime
+      if: ctx.logstash?.pipeline?.total?.flow?.queue_backpressure?.lifetime == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.queue_backpressure.current
+      if: ctx.logstash?.pipeline?.total?.flow?.queue_backpressure?.current == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.queue_backpressure.last_1_minute
+      if: ctx.logstash?.pipeline?.total?.flow?.queue_backpressure?.last_1_minute == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.queue_backpressure.last_5_minutes
+      if: ctx.logstash?.pipeline?.total?.flow?.queue_backpressure?.last_5_minutes == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.queue_backpressure.last_15_minutes
+      if: ctx.logstash?.pipeline?.total?.flow?.queue_backpressure?.last_15_minutes == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.queue_backpressure.last_1_hour
+      if: ctx.logstash?.pipeline?.total?.flow?.queue_backpressure?.last_1_hour == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.queue_backpressure.last_24_hours
+      if: ctx.logstash?.pipeline?.total?.flow?.queue_backpressure?.last_24_hours == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.queue_persisted_growth_bytes.lifetime
+      if: ctx.logstash?.pipeline?.total?.flow?.queue_persisted_growth_bytes?.lifetime == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.queue_persisted_growth_bytes.current
+      if: ctx.logstash?.pipeline?.total?.flow?.queue_persisted_growth_bytes?.current == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.queue_persisted_growth_bytes.last_1_minute
+      if: ctx.logstash?.pipeline?.total?.flow?.queue_persisted_growth_bytes?.last_1_minute == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.queue_persisted_growth_bytes.last_5_minutes
+      if: ctx.logstash?.pipeline?.total?.flow?.queue_persisted_growth_bytes?.last_5_minutes == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.queue_persisted_growth_bytes.last_15_minutes
+      if: ctx.logstash?.pipeline?.total?.flow?.queue_persisted_growth_bytes?.last_15_minutes == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.queue_persisted_growth_bytes.last_1_hour
+      if: ctx.logstash?.pipeline?.total?.flow?.queue_persisted_growth_bytes?.last_1_hour == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.queue_persisted_growth_bytes.last_24_hours
+      if: ctx.logstash?.pipeline?.total?.flow?.queue_persisted_growth_bytes?.last_24_hours == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.queue_persisted_growth_events.lifetime
+      if: ctx.logstash?.pipeline?.total?.flow?.queue_persisted_growth_events?.lifetime == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.queue_persisted_growth_events.current
+      if: ctx.logstash?.pipeline?.total?.flow?.queue_persisted_growth_events?.current == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.queue_persisted_growth_events.last_1_minute
+      if: ctx.logstash?.pipeline?.total?.flow?.queue_persisted_growth_events?.last_1_minute == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.queue_persisted_growth_events.last_5_minutes
+      if: ctx.logstash?.pipeline?.total?.flow?.queue_persisted_growth_events?.last_5_minutes == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.queue_persisted_growth_events.last_15_minutes
+      if: ctx.logstash?.pipeline?.total?.flow?.queue_persisted_growth_events?.last_15_minutes == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.queue_persisted_growth_events.last_1_hour
+      if: ctx.logstash?.pipeline?.total?.flow?.queue_persisted_growth_events?.last_1_hour == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.queue_persisted_growth_events.last_24_hours
+      if: ctx.logstash?.pipeline?.total?.flow?.queue_persisted_growth_events?.last_24_hours == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.worker_concurrency.lifetime
+      if: ctx.logstash?.pipeline?.total?.flow?.worker_concurrency?.lifetime == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.worker_concurrency.current
+      if: ctx.logstash?.pipeline?.total?.flow?.worker_concurrency?.current == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.worker_concurrency.last_1_minute
+      if: ctx.logstash?.pipeline?.total?.flow?.worker_concurrency?.last_1_minute == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.worker_concurrency.last_5_minutes
+      if: ctx.logstash?.pipeline?.total?.flow?.worker_concurrency?.last_5_minutes == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.worker_concurrency.last_15_minutes
+      if: ctx.logstash?.pipeline?.total?.flow?.worker_concurrency?.last_15_minutes == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.worker_concurrency.last_1_hour
+      if: ctx.logstash?.pipeline?.total?.flow?.worker_concurrency?.last_1_hour == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.worker_concurrency.last_24_hours
+      if: ctx.logstash?.pipeline?.total?.flow?.worker_concurrency?.last_24_hours == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.filter_throughput.lifetime
+      if: ctx.logstash?.pipeline?.total?.flow?.filter_throughput?.lifetime == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.filter_throughput.current
+      if: ctx.logstash?.pipeline?.total?.flow?.filter_throughput?.current == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.filter_throughput.last_1_minute
+      if: ctx.logstash?.pipeline?.total?.flow?.filter_throughput?.last_1_minute == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.filter_throughput.last_5_minutes
+      if: ctx.logstash?.pipeline?.total?.flow?.filter_throughput?.last_5_minutes == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.filter_throughput.last_15_minutes
+      if: ctx.logstash?.pipeline?.total?.flow?.filter_throughput?.last_15_minutes == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.filter_throughput.last_1_hour
+      if: ctx.logstash?.pipeline?.total?.flow?.filter_throughput?.last_1_hour == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.filter_throughput.last_24_hours
+      if: ctx.logstash?.pipeline?.total?.flow?.filter_throughput?.last_24_hours == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.output_throughput.lifetime
+      if: ctx.logstash?.pipeline?.total?.flow?.output_throughput?.lifetime == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.output_throughput.current
+      if: ctx.logstash?.pipeline?.total?.flow?.output_throughput?.current == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.output_throughput.last_1_minute
+      if: ctx.logstash?.pipeline?.total?.flow?.output_throughput?.last_1_minute == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.output_throughput.last_5_minutes
+      if: ctx.logstash?.pipeline?.total?.flow?.output_throughput?.last_5_minutes == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.output_throughput.last_15_minutes
+      if: ctx.logstash?.pipeline?.total?.flow?.output_throughput?.last_15_minutes == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.output_throughput.last_1_hour
+      if: ctx.logstash?.pipeline?.total?.flow?.output_throughput?.last_1_hour == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.output_throughput.last_24_hours
+      if: ctx.logstash?.pipeline?.total?.flow?.output_throughput?.last_24_hours == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.input_throughput.lifetime
+      if: ctx.logstash?.pipeline?.total?.flow?.input_throughput?.lifetime == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.input_throughput.current
+      if: ctx.logstash?.pipeline?.total?.flow?.input_throughput?.current == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.input_throughput.last_1_minute
+      if: ctx.logstash?.pipeline?.total?.flow?.input_throughput?.last_1_minute == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.input_throughput.last_5_minutes
+      if: ctx.logstash?.pipeline?.total?.flow?.input_throughput?.last_5_minutes == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.input_throughput.last_15_minutes
+      if: ctx.logstash?.pipeline?.total?.flow?.input_throughput?.last_15_minutes == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.input_throughput.last_1_hour
+      if: ctx.logstash?.pipeline?.total?.flow?.input_throughput?.last_1_hour == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.total.input_throughput.last_24_hours
+      if: ctx.logstash?.pipeline?.total?.flow?.input_throughput?.last_24_hours == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.input.flow.throughput.lifetime
+      if: ctx.logstash?.pipeline?.plugin?.input?.flow?.throughput?.lifetime == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.input.flow.throughput.current
+      if: ctx.logstash?.pipeline?.plugin?.input?.flow?.throughput?.current == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.input.flow.throughput.last_1_minute
+      if: ctx.logstash?.pipeline?.plugin?.input?.flow?.throughput?.last_1_minute == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.input.flow.throughput.last_5_minutes
+      if: ctx.logstash?.pipeline?.plugin?.input?.flow?.throughput?.last_5_minutes == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.input.flow.throughput.last_15_minutes
+      if: ctx.logstash?.pipeline?.plugin?.input?.flow?.throughput?.last_15_minutes == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.input.flow.throughput.last_1_hour
+      if: ctx.logstash?.pipeline?.plugin?.input?.flow?.throughput?.last_1_hour == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.input.flow.throughput.last_24_hours
+      if: ctx.logstash?.pipeline?.plugin?.input?.flow?.throughput?.last_24_hours == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.filter.flow.worker_millis_per_event.lifetime
+      if: ctx.logstash?.pipeline?.plugin?.filter?.flow?.worker_millis_per_event?.lifetime == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.filter.flow.worker_millis_per_event.current
+      if: ctx.logstash?.pipeline?.plugin?.filter?.flow?.worker_millis_per_event?.current == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.filter.flow.worker_millis_per_event.last_1_minute
+      if: ctx.logstash?.pipeline?.plugin?.filter?.flow?.worker_millis_per_event?.last_1_minute == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.filter.flow.worker_millis_per_event.last_5_minutes
+      if: ctx.logstash?.pipeline?.plugin?.filter?.flow?.worker_millis_per_event?.last_5_minutes == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.filter.flow.worker_millis_per_event.last_15_minutes
+      if: ctx.logstash?.pipeline?.plugin?.filter?.flow?.worker_millis_per_event?.last_15_minutes == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.filter.flow.worker_millis_per_event.last_1_hour
+      if: ctx.logstash?.pipeline?.plugin?.filter?.flow?.worker_millis_per_event?.last_1_hour == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.filter.flow.worker_millis_per_event.last_24_hours
+      if: ctx.logstash?.pipeline?.plugin?.filter?.flow?.worker_millis_per_event?.last_24_hours == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.filter.flow.worker_utilization.lifetime
+      if: ctx.logstash?.pipeline?.plugin?.filter?.flow?.worker_utilization?.lifetime == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.filter.flow.worker_utilization.current
+      if: ctx.logstash?.pipeline?.plugin?.filter?.flow?.worker_utilization?.current == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.filter.flow.worker_utilization.last_1_minute
+      if: ctx.logstash?.pipeline?.plugin?.filter?.flow?.worker_utilization?.last_1_minute == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.filter.flow.worker_utilization.last_5_minutes
+      if: ctx.logstash?.pipeline?.plugin?.filter?.flow?.worker_utilization?.last_5_minutes == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.filter.flow.worker_utilization.last_15_minutes
+      if: ctx.logstash?.pipeline?.plugin?.filter?.flow?.worker_utilization?.last_15_minutes == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.filter.flow.worker_utilization.last_1_hour
+      if: ctx.logstash?.pipeline?.plugin?.filter?.flow?.worker_utilization?.last_1_hour == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.filter.flow.worker_utilization.last_24_hours
+      if: ctx.logstash?.pipeline?.plugin?.filter?.flow?.worker_utilization?.last_24_hours == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.output.flow.worker_millis_per_event.lifetime
+      if: ctx.logstash?.pipeline?.plugin?.output?.flow?.worker_millis_per_event?.lifetime == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.output.flow.worker_millis_per_event.current
+      if: ctx.logstash?.pipeline?.plugin?.output?.flow?.worker_millis_per_event?.current == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.output.flow.worker_millis_per_event.last_1_minute
+      if: ctx.logstash?.pipeline?.plugin?.output?.flow?.worker_millis_per_event?.last_1_minute == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.output.flow.worker_millis_per_event.last_5_minutes
+      if: ctx.logstash?.pipeline?.plugin?.output?.flow?.worker_millis_per_event?.last_5_minutes == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.output.flow.worker_millis_per_event.last_15_minutes
+      if: ctx.logstash?.pipeline?.plugin?.output?.flow?.worker_millis_per_event?.last_15_minutes == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.output.flow.worker_millis_per_event.last_1_hour
+      if: ctx.logstash?.pipeline?.plugin?.output?.flow?.worker_millis_per_event?.last_1_hour == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.output.flow.worker_millis_per_event.last_24_hours
+      if: ctx.logstash?.pipeline?.plugin?.output?.flow?.worker_millis_per_event?.last_24_hours == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.output.flow.worker_utilization.lifetime
+      if: ctx.logstash?.pipeline?.plugin?.output?.flow?.worker_utilization?.lifetime == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.output.flow.worker_utilization.current
+      if: ctx.logstash?.pipeline?.plugin?.output?.flow?.worker_utilization?.current == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.output.flow.worker_utilization.last_1_minute
+      if: ctx.logstash?.pipeline?.plugin?.output?.flow?.worker_utilization?.last_1_minute == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.output.flow.worker_utilization.last_5_minutes
+      if: ctx.logstash?.pipeline?.plugin?.output?.flow?.worker_utilization?.last_5_minutes == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.output.flow.worker_utilization.last_15_minutes
+      if: ctx.logstash?.pipeline?.plugin?.output?.flow?.worker_utilization?.last_15_minutes == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.output.flow.worker_utilization.last_1_hour
+      if: ctx.logstash?.pipeline?.plugin?.output?.flow?.worker_utilization?.last_1_hour == "Infinity"
+  - remove:
+      ignore_missing: true
+      field: logstash.pipeline.plugin.output.flow.worker_utilization.last_24_hours
+      if: ctx.logstash?.pipeline?.plugin?.output?.flow?.worker_utilization?.last_24_hours == "Infinity"
+on_failure:
+  - set:
+      field: 'error.message'
+      value: '{{ _ingest.on_failure_message }}'

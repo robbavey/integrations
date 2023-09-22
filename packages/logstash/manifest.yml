@@ -44,14 +44,39 @@ policy_templates:
         title: "Metrics (Pipeline Monitoring)"
         description: "Collect Pipeline metrics and stats from Logstash instances to power the Stack Monitoring application in Kibana"
         vars:
-          - name: hosts
+          - name: username
             type: text
-            title: Hosts
-            multi: true
-            required: true
-            show_user: true
-            default:
-              - http://localhost:9602
+            title: Username
+            description: Use when connecting to logstash
+            multi: false
+            required: false
+            show_user: false
+          - name: password
+            type: password
+            title: Password
+            description: Use when connecting to logstash
+            multi: false
+            required: false
+            show_user: false
+          - name: ssl
+            type: yaml
+            title: SSL Configuration
+            description: i.e. certificate, certificate_authorities, verification_mode etc. See [SSL](https://www.elastic.co/guide/en/beats/metricbeat/current/configuration-ssl.html#ssl-client-config) for details.
+            multi: false
+            required: false
+            show_user: false
+            default: |
+              #certificate_authorities: ["/etc/ca.crt"]
+              #certificate: "/etc/client.crt"
+              #key: "/etc/client.key"
+          - name: condition
+            title: Condition
+            description: Condition to filter when to collect this input
+            type: text
+            multi: false
+            required: false
+            show_user: false
+
       - type: logstash/metrics
         title: "Metrics (Stack Monitoring)"
         description: "Collect node metrics and stats from Logstash instances to power the Stack Monitoring application in Kibana"
