@@ -12,7 +12,7 @@
       description: Information about the host running the pipeline
       type: group
       fields:
-        - name: host
+        - name: name
           type: keyword
           description: Host name of the node running logstash
         - name: address
@@ -24,36 +24,30 @@
       fields:
         - name: events.filtered
           type: long
-          metric_type: counter
           description: Number of events filtered by the pipeline
         - name: events.in
-          metric_type: counter
           type: long
           description: Number of events received by the pipeline
         - name: events.out
-          metric_type: counter
           type: long
           description: Number of events emitted by the pipeline
         - name: time.duration.ms
-          metric_type: counter
           unit: ms
           type: long
           description: Time spent processing events through the pipeline.
         - name: time.queue_push_duration.ms
-          metric_type: counter
           unit: ms
           type: long
           description: Time spent pushing events to the queue for this pipeline.
         - name: reloads.success
-          metric_type: counter
           type: long
           description: Number of successful reloads for this pipeline
         - name: reloads.failed
           type: long
           description: Number of failed reloads for this pipeline
-          metric_type: counter
         - name: flow
           type: group
+          description: flow metrics
           fields:
             - name: worker_concurrency.current
               type: scaled_float
@@ -103,7 +97,6 @@
               description: Type of queue - persistent or memory
             - name: events
               type: long
-              metric_type: counter
               description: Number of events in the PQ for this pipeline
             - name: current_size.bytes
               type: long
