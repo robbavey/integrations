@@ -84,9 +84,9 @@
               metric_type: gauge
               description: current value of the filter throughput flow metric
             - name: filter_throughput.last_1_minute
-             metric_type: gauge
-             type: scaled_float
-             description: current value of the filter throughput flow metric
+              metric_type: gauge
+              type: scaled_float
+              description: current value of the filter throughput flow metric
             - name: output_throughput.current
               type: scaled_float
               metric_type: gauge
@@ -108,7 +108,7 @@
             - name: current_size.bytes
               type: long
               metric_type: gauge
-              unit: b
+              unit: byte
               description: Current size of the PQ
             - name: max_size.bytes
               metric_type: gauge
