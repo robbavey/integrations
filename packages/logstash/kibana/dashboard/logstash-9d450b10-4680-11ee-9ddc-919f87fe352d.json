@@ -1,11 +1,5 @@
 {
     "attributes": {
-        "controlGroupInput": {
-            "chainingSystem": "HIERARCHICAL",
-            "controlStyle": "oneLine",
-            "ignoreParentSettingsJSON": "{\"ignoreFilters\":false,\"ignoreQuery\":false,\"ignoreTimerange\":false,\"ignoreValidations\":false}",
-            "panelsJSON": "{\"f8b74dd1-8785-4fff-96ba-8d8cfb7615eb\":{\"type\":\"optionsListControl\",\"order\":0,\"grow\":true,\"width\":\"medium\",\"explicitInput\":{\"id\":\"f8b74dd1-8785-4fff-96ba-8d8cfb7615eb\",\"fieldName\":\"logstash.node.stats.logstash.name\",\"title\":\"Node Name\",\"enhancements\":{}}}}"
-        },
         "description": "",
         "kibanaSavedObjectMeta": {
             "searchSourceJSON": {
@@ -43,7 +37,7 @@
                         "id": "",
                         "params": {
                             "fontSize": 12,
-                            "markdown": "**Navigation** \n\n**Logstash Overview**\n\n[Overview](/app/dashboards#/view/logstash-79270240-48ee-11ee-8cb5-99927777c522)  \n[Nodes Overview](/app/dashboards#/view/logstash-ee860840-41ed-11ee-874b-fdb94cc3273a)  \n**[Node Overview](/app/dashboards#/view/logstash-9d450b10-4680-11ee-9ddc-919f87fe352d)**  \n[Node Overview Advanced View](/app/dashboards#/view/logstash-a42d7060-45e6-11ee-957b-3720c0b0fbc5)  \n\n\n[Pipelines Overview](/app/dashboards#/view/logstash-c0594170-526a-11ee-9ecc-31444cb79548)  \n[Pipeline Detail Overview](/app/dashboards#/view/logstash-79270240-48ee-11ee-8cb5-99927777c522)\n\n\nOverview\n\nThis Dashboard gives a view of the overall performance of a single Logstash Node. Should be used in conjunction with the node name\nfilter",
+                            "markdown": "**Navigation** \n\n**Logstash Overview**\n\n[Overview](/app/dashboards#/view/logstash-79270240-48ee-11ee-8cb5-99927777c522)  \n[Nodes Overview](/app/dashboards#/view/logstash-ee860840-41ed-11ee-874b-fdb94cc3273a)  \n**[Node Overview](/app/dashboards#/view/logstash-9d450b10-4680-11ee-9ddc-919f87fe352d)**  \n[Node Overview Advanced View](/app/dashboards#/view/logstash-a42d7060-45e6-11ee-957b-3720c0b0fbc5)  \n\n[Pipelines Overview](/app/dashboards#/view/logstash-c0594170-526a-11ee-9ecc-31444cb79548)  \n[Pipeline Details Overview](/app/dashboards#/view/logstash-32a55f90-5264-11ee-9ecc-31444cb79548)\n\nOverview\n\nThis Dashboard gives a view of the overall performance of a single Logstash Node. Should be used in conjunction with the node name\nfilter",
                             "openLinksInNewTab": false
                         },
                         "title": "",
@@ -1564,7 +1558,7 @@
         "version": 1
     },
     "coreMigrationVersion": "8.8.0",
-    "created_at": "2023-09-22T14:40:17.687Z",
+    "created_at": "2023-09-25T16:23:06.285Z",
     "id": "logstash-9d450b10-4680-11ee-9ddc-919f87fe352d",
     "managed": true,
     "references": [
@@ -1612,11 +1606,6 @@
             "id": "logstash-e6ce6410-53f6-11ee-9902-d13957058664",
             "name": "87bc08bb-a0ca-4f82-8943-a141aaef3248:drilldown:DASHBOARD_TO_DASHBOARD_DRILLDOWN:32da855b-5a16-4271-8e06-938568d20659:dashboardId",
             "type": "dashboard"
-        },
-        {
-            "id": "logstash-sm-metrics",
-            "name": "controlGroup_f8b74dd1-8785-4fff-96ba-8d8cfb7615eb:optionsListDataView",
-            "type": "index-pattern"
         }
     ],
     "type": "dashboard",

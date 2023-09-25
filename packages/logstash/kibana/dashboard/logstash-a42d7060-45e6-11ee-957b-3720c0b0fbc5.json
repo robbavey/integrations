@@ -1,11 +1,5 @@
 {
     "attributes": {
-        "controlGroupInput": {
-            "chainingSystem": "HIERARCHICAL",
-            "controlStyle": "oneLine",
-            "ignoreParentSettingsJSON": "{\"ignoreFilters\":false,\"ignoreQuery\":false,\"ignoreTimerange\":false,\"ignoreValidations\":false}",
-            "panelsJSON": "{\"4b095518-7dc3-4d0e-a323-5d7846f65bff\":{\"type\":\"optionsListControl\",\"order\":0,\"grow\":true,\"width\":\"medium\",\"explicitInput\":{\"id\":\"4b095518-7dc3-4d0e-a323-5d7846f65bff\",\"fieldName\":\"logstash.node.stats.logstash.name\",\"title\":\"Node Name\",\"enhancements\":{}}}}"
-        },
         "description": "",
         "kibanaSavedObjectMeta": {
             "searchSourceJSON": {
@@ -42,7 +36,7 @@
                         "id": "",
                         "params": {
                             "fontSize": 12,
-                            "markdown": "**Navigation** \n\n**Logstash Overview**\n\n[Overview](/app/dashboards#/view/logstash-79270240-48ee-11ee-8cb5-99927777c522)  \n[Nodes Overview](/app/dashboards#/view/logstash-ee860840-41ed-11ee-874b-fdb94cc3273a)  \n[Node Overview](/app/dashboards#/view/logstash-9d450b10-4680-11ee-9ddc-919f87fe352d)  \n**[Node Overview Advanced View](/app/dashboards#/view/logstash-a42d7060-45e6-11ee-957b-3720c0b0fbc5)**  \n\n[Pipelines Overview](/app/dashboards#/view/logstash-c0594170-526a-11ee-9ecc-31444cb79548)  \n[Pipeline Detail Overview](/app/dashboards#/view/logstash-79270240-48ee-11ee-8cb5-99927777c522)\n\n\nOverview\n\nThis Dashboard gives an advanced view of the overall performance of a single Logstash Node. Should be used in conjunction with the node name\nfilter",
+                            "markdown": "**Navigation** \n\n**Logstash Overview**\n\n[Overview](/app/dashboards#/view/logstash-79270240-48ee-11ee-8cb5-99927777c522)  \n[Nodes Overview](/app/dashboards#/view/logstash-ee860840-41ed-11ee-874b-fdb94cc3273a)  \n[Node Overview](/app/dashboards#/view/logstash-9d450b10-4680-11ee-9ddc-919f87fe352d)  \n**[Node Overview Advanced View](/app/dashboards#/view/logstash-a42d7060-45e6-11ee-957b-3720c0b0fbc5)**  \n\n[Pipelines Overview](/app/dashboards#/view/logstash-c0594170-526a-11ee-9ecc-31444cb79548)  \n[Pipeline Details Overview](/app/dashboards#/view/logstash-32a55f90-5264-11ee-9ecc-31444cb79548)\n\nOverview\n\nThis Dashboard gives an advanced view of the overall performance of a single Logstash Node. Should be used in conjunction with the node name\nfilter",
                             "openLinksInNewTab": false
                         },
                         "title": "",
@@ -958,6 +952,7 @@
             {
                 "embeddableConfig": {
                     "attributes": {
+                        "description": "",
                         "references": [
                             {
                                 "id": "logstash-sm-metrics",
@@ -1006,7 +1001,7 @@
                                                                 "decimals": 2
                                                             }
                                                         },
-                                                        "formula": "last_value(logstash.pipeline.total.queues.current_size.bytes, kql='logstash.pipeline.total.queues.current_size.bytes: *')/last_value(logstash.pipeline.total.queues.max_size.bytes, kql='logstash.pipeline.total.queues.max_size.bytes: *')",
+                                                        "formula": "round(last_value(logstash.pipeline.total.queues.current_size.bytes, kql='logstash.pipeline.total.queues.current_size.bytes: *')/last_value(logstash.pipeline.total.queues.max_size.bytes, kql='logstash.pipeline.total.queues.max_size.bytes: *'), 2)",
                                                         "isFormulaBroken": false
                                                     },
                                                     "references": [
@@ -1022,7 +1017,7 @@
                                                         "query": "logstash.pipeline.total.queues.current_size.bytes: *"
                                                     },
                                                     "isBucketed": false,
-                                                    "label": "Part of last_value(logstash.pipeline.total.queues.current_size.bytes, kql='logstash.pipeline.total.queues.current_size.bytes: *')/last_value(logstash.pipeline.total.queues.max_size.bytes, kql='logstash.pipeline.total.queues.max_size.bytes: *')",
+                                                    "label": "Part of Persistent Queue Utilization",
                                                     "operationType": "last_value",
                                                     "params": {
                                                         "sortField": "@timestamp"
@@ -1038,7 +1033,7 @@
                                                         "query": "logstash.pipeline.total.queues.max_size.bytes: *"
                                                     },
                                                     "isBucketed": false,
-                                                    "label": "Part of last_value(logstash.pipeline.total.queues.current_size.bytes, kql='logstash.pipeline.total.queues.current_size.bytes: *')/last_value(logstash.pipeline.total.queues.max_size.bytes, kql='logstash.pipeline.total.queues.max_size.bytes: *')",
+                                                    "label": "Part of Persistent Queue Utilization",
                                                     "operationType": "last_value",
                                                     "params": {
                                                         "sortField": "@timestamp"
@@ -1050,20 +1045,32 @@
                                                     "customLabel": true,
                                                     "dataType": "number",
                                                     "isBucketed": false,
-                                                    "label": "Part of last_value(logstash.pipeline.total.queues.current_size.bytes, kql='logstash.pipeline.total.queues.current_size.bytes: *')/last_value(logstash.pipeline.total.queues.max_size.bytes, kql='logstash.pipeline.total.queues.max_size.bytes: *')",
+                                                    "label": "Part of Persistent Queue Utilization",
                                                     "operationType": "math",
                                                     "params": {
                                                         "tinymathAst": {
                                                             "args": [
-                                                                "b87af172-05ed-43d1-aaf0-191042e36cf3X0",
-                                                                "b87af172-05ed-43d1-aaf0-191042e36cf3X1"
+                                                                {
+                                                                    "args": [
+                                                                        "b87af172-05ed-43d1-aaf0-191042e36cf3X0",
+                                                                        "b87af172-05ed-43d1-aaf0-191042e36cf3X1"
+                                                                    ],
+                                                                    "location": {
+                                                                        "max": 241,
+                                                                        "min": 6
+                                                                    },
+                                                                    "name": "divide",
+                                                                    "text": "last_value(logstash.pipeline.total.queues.current_size.bytes, kql='logstash.pipeline.total.queues.current_size.bytes: *')/last_value(logstash.pipeline.total.queues.max_size.bytes, kql='logstash.pipeline.total.queues.max_size.bytes: *')",
+                                                                    "type": "function"
+                                                                },
+                                                                2
                                                             ],
                                                             "location": {
-                                                                "max": 235,
+                                                                "max": 245,
                                                                 "min": 0
                                                             },
-                                                            "name": "divide",
-                                                            "text": "last_value(logstash.pipeline.total.queues.current_size.bytes, kql='logstash.pipeline.total.queues.current_size.bytes: *')/last_value(logstash.pipeline.total.queues.max_size.bytes, kql='logstash.pipeline.total.queues.max_size.bytes: *')",
+                                                            "name": "round",
+                                                            "text": "round(last_value(logstash.pipeline.total.queues.current_size.bytes, kql='logstash.pipeline.total.queues.current_size.bytes: *')/last_value(logstash.pipeline.total.queues.max_size.bytes, kql='logstash.pipeline.total.queues.max_size.bytes: *'), 2)",
                                                             "type": "function"
                                                         }
                                                     },
@@ -1528,7 +1535,7 @@
         "version": 1
     },
     "coreMigrationVersion": "8.8.0",
-    "created_at": "2023-09-22T14:40:17.687Z",
+    "created_at": "2023-09-25T16:23:06.285Z",
     "id": "logstash-a42d7060-45e6-11ee-957b-3720c0b0fbc5",
     "managed": true,
     "references": [
@@ -1570,11 +1577,6 @@
         {
             "id": "logstash-sm-metrics",
             "name": "c6fb1dc0-c51d-4c00-903c-d90ad3b77ce1:indexpattern-datasource-layer-c03b1610-b629-4e6c-ae2a-0e460cd446d2",
-            "type": "index-pattern"
-        },
-        {
-            "id": "logstash-sm-metrics",
-            "name": "controlGroup_4b095518-7dc3-4d0e-a323-5d7846f65bff:optionsListDataView",
             "type": "index-pattern"
         }
     ],

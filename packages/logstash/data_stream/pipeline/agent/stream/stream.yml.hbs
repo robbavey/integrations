@@ -14,185 +14,68 @@ redact:
   fields: ~
 
 program: |
-  (has(state.username) && state.username != null ?
-    get_request(state.url).with({
-        "Header":{
-            "Authorization": ["Basic "+string(base64(state.username+":"+state.password))],
-        }
-    })
-  : (has(state.cursor) && has(state.cursor.username) && state.cursor.username != null ?
+    (has(state.username) && state.username != null ?
       get_request(state.url).with({
-        "Header":{
-          "Authorization": ["Basic "+string(base64(state.cursor.username+":"+state.cursor.password))],
-        }
-      }
-     )
-    :
-      get_request(state.url)
-    )
-   )
-  .do_request().as(resp, bytes(resp.Body)
-  .decode_json().as(body,
-    body.pipelines.map(pipeline_name, pipeline_name != ".monitoring-logstash", {"name":pipeline_name}.with(body.pipelines[pipeline_name])
-      .with({
-        "outputs":body.pipelines[pipeline_name]["plugins"]["outputs"]
+          "Header":{
+              "Authorization": ["Basic "+string(base64(state.username+":"+state.password))],
+          }
       })
-      .with({
-        "inputs":body.pipelines[pipeline_name]["plugins"]["inputs"]
-      })
-      .with({
-        "filters":body.pipelines[pipeline_name]["plugins"]["filters"]
-      })
-      .with({
-        "codecs":body.pipelines[pipeline_name]["plugins"]["codecs"]
-      })
-      .with({
-        "host":{
-          "state":state,
-          "name":body.name,
-          "address":body.http_address,
-        }
-      })
-      .with({
-        "total":{
-          "flow":body.pipelines[pipeline_name].flow,
-          "time":{
-            "queue_push_duration":{
-              "ms":body.pipelines[pipeline_name]["events"]["queue_push_duration_in_millis"],
-            },
-            "duration":{
-              "ms":body.pipelines[pipeline_name]["events"]["queue_push_duration_in_millis"],
-            },
-          },
-          "reloads":{
-            "successes":body.pipelines[pipeline_name]["reloads"]["successes"],
-            "failures":body.pipelines[pipeline_name]["reloads"]["failures"]
-          },
-          "events":{
-            "out":body.pipelines[pipeline_name]["events"]["out"],
-            "in":body.pipelines[pipeline_name]["events"]["in"],
-            "filtered":body.pipelines[pipeline_name]["events"]["filtered"],
-          },
-          "queues":{
-            "type":body.pipelines[pipeline_name]["queue"]["type"],
-            "events":body.pipelines[pipeline_name]["queue"]["events_count"],
-            "current_size":{
-              "bytes":body.pipelines[pipeline_name]["queue"]["queue_size_in_bytes"],
-            },
-            "max_size":{
-              "bytes":body.pipelines[pipeline_name]["queue"]["max_queue_size_in_bytes"],
-            }
+    : (has(state.cursor) && has(state.cursor.username) && state.cursor.username != null ?
+        get_request(state.url).with({
+          "Header":{
+            "Authorization": ["Basic "+string(base64(state.cursor.username+":"+state.cursor.password))],
           }
         }
-      })
-    )
-    )).as(events, events.map(event,
-    {
-      "inputs":event.inputs.map(input,
-      {
-        "name":event.name,
-        "id":event.hash,
-        "total":event.total,
-        "host":event.host,
-        "plugin":{
-          "type":"input",
-          "input":{
-            "name":input.name,
-            "id":input.id,
-            "flow": has(input.flow) ? input["flow"] : {},
-            "events":{
-              "out":input.events["out"],
-            },
+       )
+      :
+        get_request(state.url)
+      )
+     )
+    .do_request().as(resp, bytes(resp.Body)
+    .decode_json().as(body,
+      body.pipelines.map(pipeline_name, pipeline_name != ".monitoring-logstash", {"name":pipeline_name}
+        .with({
+          "host":{
+            "name":body.name,
+            "address":body.http_address,
+          }
+        })
+        .with({
+          "total":{
+            "flow":body.pipelines[pipeline_name].flow,
             "time":{
               "queue_push_duration":{
-                "ms":input.events.queue_push_duration_in_millis
-              }
-            }
-          }
-        }
-      }
-      ),
-      "codecs":event.codecs.map(codec,
-      {
-        "name":event.name,
-        "id":event.hash,
-        "total":event.total,
-        "host":event.host,
-        "plugin":{
-          "type":"codec",
-          "codec":{
-          "id":codec.id,
-          "name":codec.name,
-            "flow": has(codec.flow) ? codec["flow"] : {},
-            "decode":{
-              "duration":{
-                "ms":codec.decode.duration_in_millis
+                "ms":body.pipelines[pipeline_name]["events"]["queue_push_duration_in_millis"],
               },
-              "in":codec.decode["writes_in"],
-              "out":codec.decode["out"],
-            },
-            "encode":{
-              "in":codec.encode["writes_in"],
               "duration":{
-                "ms":codec.encode.duration_in_millis
-              }
-            }
-          }
-        }
-      }
-      ),
-      "filters":event.filters.map(filter,
-      {
-        "name":event.name,
-        "id":event.hash,
-        "total":event.total,
-        "host":event.host,
-        "plugin":{
-          "type":"filter",
-          "filter":{
-          "id":filter.id,
-          "name":filter.name,
-            "flow": has(filter.flow) ? filter["flow"] : {},
+                "ms":body.pipelines[pipeline_name]["events"]["duration_in_millis"],
+              },
+            },
+            "reloads":{
+              "successes":body.pipelines[pipeline_name]["reloads"]["successes"],
+              "failures":body.pipelines[pipeline_name]["reloads"]["failures"]
+            },
             "events":{
-              "in":filter.events["in"],
-              "out":filter.events["out"],
+              "out":body.pipelines[pipeline_name]["events"]["out"],
+              "in":body.pipelines[pipeline_name]["events"]["in"],
+              "filtered":body.pipelines[pipeline_name]["events"]["filtered"],
             },
-            "time":{
-              "duration":{
-                "ms":filter.events.duration_in_millis
+            "queues":{
+              "type":body.pipelines[pipeline_name]["queue"]["type"],
+              "events":body.pipelines[pipeline_name]["queue"]["events_count"],
+              "current_size":{
+                "bytes":body.pipelines[pipeline_name]["queue"]["queue_size_in_bytes"],
+              },
+              "max_size":{
+                "bytes":body.pipelines[pipeline_name]["queue"]["max_queue_size_in_bytes"],
               }
             }
           }
-        }
-      }
-      ),
-      "outputs":event.outputs.map(output,
-      {
-        "name":event.name,
-        "id":event.hash,
-        "total":event.total,
-        "host":event.host,
-        "plugin":{
-          "type":"output",
-          "output":{
-            "id":output.id,
-            "name":output.name,
-            "flow": has(output.flow) ? output["flow"] : {},
-            "events":{
-              "in":output.events["in"],
-              "out":output.events["out"],
-            },
-            "time":{
-              "duration":{
-                "ms":output.events.duration_in_millis
-              }
-            }
-          }
-        }
-      }
+        })
       )
-    }).collate(["filters", "outputs", "inputs", "codecs"])).as(eve, {
-      "cursor": {"username":(has(state.cursor) && has(state.cursor.username)) ? state.cursor.username : has(state.username) ? state.username : null,
-                 "password":has(state.cursor) && has(state.cursor.password) ? state.cursor.password : has(state.password) ? state.password : null
-                 },
-      "events":eve.map(each, {"logstash":{"pipeline":each}})})
+      ))
+      .as(eve, {
+        "cursor": {"username":(has(state.cursor) && has(state.cursor.username)) ? state.cursor.username : has(state.username) ? state.username : null,
+                   "password":has(state.cursor) && has(state.cursor.password) ? state.cursor.password : has(state.password) ? state.password : null
+                   },
+        "events":eve.map(each, {"logstash":{"pipeline":each}})})

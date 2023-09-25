@@ -18,33 +18,3 @@ streams:
         required: true
         show_user: true
         default: 10s
-      - name: url
-        type: text
-        title: Logstash URL
-        show_user: true
-        required: false
-        default: http://localhost:9600
-      - name: username
-        type: text
-        title: Username
-        show_user: true
-        required: false
-      - name: password
-        type: password
-        title: Password
-        show_user: true
-        required: false
-      - name: resource_ssl
-        type: yaml
-        title: SSL Configuration
-        description: i.e. certificate, certificate_authorities, verification_mode etc. See [SSL](https://www.elastic.co/guide/en/beats/metricbeat/current/configuration-ssl.html#ssl-client-config) for details.
-        multi: false
-        required: false
-        show_user: false
-        default: |
-          #enabled: true
-          #verification_mode: none
-          #certificate_authorities: ["/etc/ca.crt"]
-          #certificate: "/etc/client.crt"
-          #key: "/etc/client.key"
-
