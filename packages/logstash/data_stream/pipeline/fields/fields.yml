@@ -8,6 +8,9 @@
     - name: id
       type: wildcard
       description: Logstash Pipeline hash
+    - name: elasticsearch.cluster.id
+      type: keyword
+      description: Elasticsearch clusters this Logstash pipeline is attached to
     - name: host
       description: Information about the host running the pipeline
       type: group
