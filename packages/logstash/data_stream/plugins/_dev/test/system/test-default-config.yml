@@ -1,4 +1,4 @@
-type: cel
+type: logstash/metrics
 dataset: logstash.stack_monitoring.pipeline
 vars:
   hosts:

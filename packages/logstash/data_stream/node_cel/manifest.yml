@@ -1,14 +1,15 @@
 type: metrics
-title: Logstash pipeline
+title: Logstash Node Stats
+dataset: logstash.node
 elasticsearch:
   index_template:
     mappings:
-      dynamic: false
+      dynamic: true
 streams:
   - input: cel
     enabled: false
-    title: "Collect Pipeline Stats"
-    description: "Collect Pipeline Stats"
+    title: "Collect Node Stats"
+    description: "Collect Node Stats."
     template_path: stream.yml.hbs
     vars:
       - name: period

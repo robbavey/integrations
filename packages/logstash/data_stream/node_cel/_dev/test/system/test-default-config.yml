@@ -1,5 +1,5 @@
-type: cel
-dataset: logstash.stack_monitoring.pipeline
+type: logstash/metrics
+dataset: logstash.node
 vars:
   hosts:
     - "http://{{Hostname}}:9600"

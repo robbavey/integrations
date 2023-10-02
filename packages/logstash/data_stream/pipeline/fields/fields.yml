@@ -52,6 +52,14 @@
           type: group
           description: flow metrics
           fields:
+            - name: queue_persisted_growth_events.current
+              type: scaled_float
+              metric_type: gauge
+              description: current value of the queue persisted growth events flow metric
+            - name: queue_persisted_growth_bytes.current
+              type: scaled_float
+              metric_type: gauge
+              description: current value of the queue persisted growth bytes flow metric
             - name: worker_concurrency.current
               type: scaled_float
               metric_type: gauge

@@ -31,9 +31,11 @@ processors:
   - remove:
       ignore_missing: true
       field: logstash.pipeline.total.flow.queue_persisted_growth_bytes.current
+      if: ctx.logstash?.pipeline?.total?.flow?.queue_persisted_growth_bytes?.current == "Infinity"
   - remove:
       ignore_missing: true
       field: logstash.pipeline.total.flow.queue_persisted_growth_bytes.last_1_minute
+      if: ctx.logstash?.pipeline?.total?.flow?.queue_persisted_growth_bytes?.last_1_minute == "Infinity"
   - remove:
       ignore_missing: true
       field: logstash.pipeline.total.flow.queue_persisted_growth_bytes.last_5_minutes
@@ -52,9 +54,11 @@ processors:
   - remove:
       ignore_missing: true
       field: logstash.pipeline.total.flow.queue_persisted_growth_events.current
+      if: ctx.logstash?.pipeline?.total?.flow?.queue_persisted_growth_events?.current == "Infinity"
   - remove:
       ignore_missing: true
       field: logstash.pipeline.total.flow.queue_persisted_growth_events.last_1_minute
+      if: ctx.logstash?.pipeline?.total?.flow?.queue_persisted_growth_events?.last_1_minute == "Infinity"
   - remove:
       ignore_missing: true
       field: logstash.pipeline.total.flow.queue_persisted_growth_events.last_5_minutes

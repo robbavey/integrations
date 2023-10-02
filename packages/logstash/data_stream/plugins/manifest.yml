@@ -7,8 +7,8 @@ elasticsearch:
 streams:
   - input: cel
     enabled: false
-    title: "Collect Pipeline Stats"
-    description: "Collect Pipeline Stats"
+    title: "Collect Plugin Stats"
+    description: "Collect Plugin Stats"
     template_path: stream.yml.hbs
     vars:
       - name: period
@@ -17,4 +17,4 @@ streams:
         multi: false
         required: true
         show_user: true
-        default: 30s
+        default: 1m

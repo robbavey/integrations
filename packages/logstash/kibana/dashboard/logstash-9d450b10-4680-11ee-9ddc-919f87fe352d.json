@@ -1,5 +1,11 @@
 {
     "attributes": {
+        "controlGroupInput": {
+            "chainingSystem": "HIERARCHICAL",
+            "controlStyle": "oneLine",
+            "ignoreParentSettingsJSON": "{\"ignoreFilters\":false,\"ignoreQuery\":false,\"ignoreTimerange\":false,\"ignoreValidations\":false}",
+            "panelsJSON": "{\"f8e0eae3-62e0-4539-87d6-523e89a8213e\":{\"type\":\"optionsListControl\",\"order\":0,\"grow\":true,\"width\":\"medium\",\"explicitInput\":{\"id\":\"f8e0eae3-62e0-4539-87d6-523e89a8213e\",\"fieldName\":\"logstash.host.name\",\"title\":\"Logstash Host Name\",\"grow\":true,\"width\":\"medium\",\"enhancements\":{}}},\"25b6ddfd-e372-4344-827b-c81461088031\":{\"type\":\"optionsListControl\",\"order\":1,\"grow\":true,\"width\":\"medium\",\"explicitInput\":{\"id\":\"25b6ddfd-e372-4344-827b-c81461088031\",\"fieldName\":\"logstash.pipeline.name\",\"title\":\"Pipeline Name\",\"grow\":true,\"width\":\"medium\",\"enhancements\":{}}}}"
+        },
         "description": "",
         "kibanaSavedObjectMeta": {
             "searchSourceJSON": {
@@ -37,7 +43,7 @@
                         "id": "",
                         "params": {
                             "fontSize": 12,
-                            "markdown": "**Navigation** \n\n**Logstash Overview**\n\n[Overview](/app/dashboards#/view/logstash-79270240-48ee-11ee-8cb5-99927777c522)  \n[Nodes Overview](/app/dashboards#/view/logstash-ee860840-41ed-11ee-874b-fdb94cc3273a)  \n**[Node Overview](/app/dashboards#/view/logstash-9d450b10-4680-11ee-9ddc-919f87fe352d)**  \n[Node Overview Advanced View](/app/dashboards#/view/logstash-a42d7060-45e6-11ee-957b-3720c0b0fbc5)  \n\n[Pipelines Overview](/app/dashboards#/view/logstash-c0594170-526a-11ee-9ecc-31444cb79548)  \n[Pipeline Details Overview](/app/dashboards#/view/logstash-32a55f90-5264-11ee-9ecc-31444cb79548)\n\nOverview\n\nThis Dashboard gives a view of the overall performance of a single Logstash Node. Should be used in conjunction with the node name\nfilter",
+                            "markdown": "**Navigation** \n\n**Logstash Overview**\n\n[Overview](/app/dashboards#/view/logstash-79270240-48ee-11ee-8cb5-99927777c522)  \n[Nodes Overview](/app/dashboards#/view/logstash-ee860840-41ed-11ee-874b-fdb94cc3273a)  \n**[Node Overview](/app/dashboards#/view/logstash-9d450b10-4680-11ee-9ddc-919f87fe352d)**  \n[Node Overview Advanced View](/app/dashboards#/view/logstash-a42d7060-45e6-11ee-957b-3720c0b0fbc5)  \n\n[Pipelines Overview](/app/dashboards#/view/logstash-c0594170-526a-11ee-9ecc-31444cb79548)  \n[Pipeline Details Overview](/app/dashboards#/view/logstash-bc1a8050-5ee1-11ee-8e78-bf6865bc3ffc)\n\nOverview\n\nThis Dashboard gives a view of the overall performance of a single Logstash Node. Should be used in conjunction with the node name\nfilter",
                             "openLinksInNewTab": false
                         },
                         "title": "",
@@ -59,6 +65,7 @@
             {
                 "embeddableConfig": {
                     "attributes": {
+                        "description": "",
                         "references": [
                             {
                                 "id": "logstash-sm-metrics",
@@ -93,7 +100,7 @@
                                                         "query": "logstash.node.stats.logstash.http_address: *"
                                                     },
                                                     "isBucketed": false,
-                                                    "label": "HTTP Address",
+                                                    "label": "HTTP address",
                                                     "operationType": "last_value",
                                                     "params": {
                                                         "sortField": "@timestamp"
@@ -109,7 +116,7 @@
                                                         "query": "logstash.node.stats.events.out: *"
                                                     },
                                                     "isBucketed": false,
-                                                    "label": "Events Emitted",
+                                                    "label": "Events emitted",
                                                     "operationType": "last_value",
                                                     "params": {
                                                         "sortField": "@timestamp"
@@ -144,7 +151,7 @@
                                                         "query": "logstash.node.stats.reloads.successes: *"
                                                     },
                                                     "isBucketed": false,
-                                                    "label": "Successful Config Reloads",
+                                                    "label": "Successful config reloads",
                                                     "operationType": "last_value",
                                                     "params": {
                                                         "sortField": "@timestamp"
@@ -156,7 +163,7 @@
                                                     "customLabel": true,
                                                     "dataType": "string",
                                                     "isBucketed": true,
-                                                    "label": "Node Name",
+                                                    "label": "Logstash host name",
                                                     "operationType": "terms",
                                                     "params": {
                                                         "exclude": [],
@@ -183,7 +190,7 @@
                                                     "customLabel": true,
                                                     "dataType": "number",
                                                     "isBucketed": false,
-                                                    "label": "Failed Config Reloads",
+                                                    "label": "Failed config reloads",
                                                     "operationType": "median",
                                                     "params": {
                                                         "emptyAsNull": true
@@ -215,7 +222,7 @@
                                                         "query": "logstash.node.stats.logstash.pipeline.workers: *"
                                                     },
                                                     "isBucketed": false,
-                                                    "label": "Default Pipeline Workers",
+                                                    "label": "Default pipeline workers",
                                                     "operationType": "last_value",
                                                     "params": {
                                                         "sortField": "@timestamp"
@@ -227,7 +234,7 @@
                                                     "customLabel": true,
                                                     "dataType": "number",
                                                     "isBucketed": false,
-                                                    "label": "Default Batch size",
+                                                    "label": "Default batch size",
                                                     "operationType": "median",
                                                     "params": {
                                                         "emptyAsNull": true
@@ -243,7 +250,7 @@
                                                         "query": "logstash.node.stats.events.in: *"
                                                     },
                                                     "isBucketed": false,
-                                                    "label": "Events Received",
+                                                    "label": "Events received",
                                                     "operationType": "last_value",
                                                     "params": {
                                                         "sortField": "@timestamp"
@@ -504,6 +511,7 @@
             {
                 "embeddableConfig": {
                     "attributes": {
+                        "description": "",
                         "references": [
                             {
                                 "id": "logstash-sm-metrics",
@@ -528,7 +536,7 @@
                                                     "dataType": "number",
                                                     "filter": {
                                                         "language": "kuery",
-                                                        "query": "logstash_stats.jvm.mem.heap_used_in_bytes: *"
+                                                        "query": "\"logstash.node.stats.jvm.mem.heap_used_in_bytes\": *"
                                                     },
                                                     "isBucketed": false,
                                                     "label": "JVM Heap (MB)",
@@ -543,7 +551,7 @@
                                                         "sortField": "@timestamp"
                                                     },
                                                     "scale": "ratio",
-                                                    "sourceField": "logstash_stats.jvm.mem.heap_used_in_bytes"
+                                                    "sourceField": "logstash.node.stats.jvm.mem.heap_used_in_bytes"
                                                 },
                                                 "467daee5-8948-4576-80fc-12bb76b01c0f": {
                                                     "dataType": "date",
@@ -1342,6 +1350,7 @@
             {
                 "embeddableConfig": {
                     "attributes": {
+                        "description": "",
                         "references": [
                             {
                                 "id": "logstash-sm-metrics",
@@ -1357,8 +1366,8 @@
                                         "2fb7e546-2fca-4965-a4d3-dcc063be3ded": {
                                             "columnOrder": [
                                                 "2d3cd5ec-a0d0-4569-8c05-ea9f847a3623",
-                                                "0c0ae432-64ed-4792-b539-c195c3d96549",
-                                                "ca4b5da2-8007-4f89-8261-9081ee13cdd5"
+                                                "ca4b5da2-8007-4f89-8261-9081ee13cdd5",
+                                                "0c0ae432-64ed-4792-b539-c195c3d96549"
                                             ],
                                             "columns": {
                                                 "0c0ae432-64ed-4792-b539-c195c3d96549": {
@@ -1369,7 +1378,7 @@
                                                         "query": "logstash.pipeline.total.events.out: *"
                                                     },
                                                     "isBucketed": false,
-                                                    "label": "Total Events Emitted",
+                                                    "label": "Total events received",
                                                     "operationType": "last_value",
                                                     "params": {
                                                         "sortField": "@timestamp"
@@ -1411,7 +1420,7 @@
                                                         "query": "logstash.pipeline.total.events.in: *"
                                                     },
                                                     "isBucketed": false,
-                                                    "label": "Total Events In",
+                                                    "label": "Total events received",
                                                     "operationType": "last_value",
                                                     "params": {
                                                         "sortField": "@timestamp"
@@ -1515,6 +1524,8 @@
                                 "layerType": "data"
                             }
                         },
+                        "title": "Running Pipelines",
+                        "type": "lens",
                         "visualizationType": "lnsDatatable"
                     },
                     "enhancements": {
@@ -1558,9 +1569,9 @@
         "version": 1
     },
     "coreMigrationVersion": "8.8.0",
-    "created_at": "2023-09-27T13:51:26.367Z",
+    "created_at": "2023-10-02T19:56:39.887Z",
     "id": "logstash-9d450b10-4680-11ee-9ddc-919f87fe352d",
-    "managed": true,
+    "managed": false,
     "references": [
         {
             "id": "logstash-sm-metrics",
@@ -1603,9 +1614,19 @@
             "type": "index-pattern"
         },
         {
-            "id": "logstash-e6ce6410-53f6-11ee-9902-d13957058664",
+            "id": "logstash-bc1a8050-5ee1-11ee-8e78-bf6865bc3ffc",
             "name": "87bc08bb-a0ca-4f82-8943-a141aaef3248:drilldown:DASHBOARD_TO_DASHBOARD_DRILLDOWN:32da855b-5a16-4271-8e06-938568d20659:dashboardId",
             "type": "dashboard"
+        },
+        {
+            "id": "logstash-sm-metrics",
+            "name": "controlGroup_f8e0eae3-62e0-4539-87d6-523e89a8213e:optionsListDataView",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logstash-sm-metrics",
+            "name": "controlGroup_25b6ddfd-e372-4344-827b-c81461088031:optionsListDataView",
+            "type": "index-pattern"
         }
     ],
     "type": "dashboard",
