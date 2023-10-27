@@ -1,6 +1,6 @@
 config_version: "2"
 interval: {{period}}
-resource.url: "{{url}}/_node/stats?graph=true&vertices=true"
+resource.url: "{{url}}"
 {{#if resource_ssl}}
 resource.ssl:
   {{resource_ssl}}
@@ -18,12 +18,12 @@ redact:
 
 
 program: |
-  get(state.url)
+  state.url.split(',').map(address, get(address+"/_node/stats?graph=true&vertices=true")
   .as(resp, bytes(resp.Body)
   .decode_json().as(body,
-    body.pipelines.map(pipeline_name, pipeline_name != ".monitoring-logstash", {"name":pipeline_name}
+    body.pipelines.map(pipeline_name, pipeline_name != ".monitoring-logstash", {"address":{"name":pipeline_name}
       .with({
-        "elasticsearch.cluster.id":((body.pipelines[pipeline_name].vertices).as(vertices, vertices.map(each, has(each.cluster_uuid), each.cluster_uuid))),
+        "elasticsearch.cluster.id":has(body.pipelines[pipeline_name].vertices) ? body.pipelines[pipeline_name].vertices.as(vertices, vertices.map(each, has(each.cluster_uuid), each.cluster_uuid)) : [],
         "host":{
           "name":body.name,
           "address":body.http_address,
@@ -32,10 +32,10 @@ program: |
           "flow":body.pipelines[pipeline_name].flow,
           "time":{
             "queue_push_duration":{
-              "ms":body.pipelines[pipeline_name].events.queue_push_duration_in_millis,
+              "ms":has(body.pipelines[pipeline_name].events.queue_push_duration_in_millis) ? body.pipelines[pipeline_name].events.queue_push_duration_in_millis: [],
             },
             "duration":{
-              "ms":body.pipelines[pipeline_name].events.duration_in_millis,
+              "ms":has(body.pipelines[pipeline_name].events.duration_in_millis) ? body.pipelines[pipeline_name].events.duration_in_millis : [],
             },
           },
           "reloads":{
@@ -43,23 +43,23 @@ program: |
             "failures":body.pipelines[pipeline_name].reloads.failures
           },
           "events":{
-            "out":body.pipelines[pipeline_name].events.out,
-            "in":body.pipelines[pipeline_name].events["in"],
-            "filtered":body.pipelines[pipeline_name].events.filtered,
+            "out":has(body.pipelines[pipeline_name].events.out) ? body.pipelines[pipeline_name].events.out : [],
+            "in":has(body.pipelines[pipeline_name].events.out) ? body.pipelines[pipeline_name].events['in'] : [],
+            "filtered":has(body.pipelines[pipeline_name].events.filtered) ? body.pipelines[pipeline_name].events.filtered : [],
           },
           "queues":{
-            "type":body.pipelines[pipeline_name].queue.type,
-            "events":body.pipelines[pipeline_name].queue.events_count,
+            "type":has(body.pipelines[pipeline_name].queue.type) ? body.pipelines[pipeline_name].queue.type : [],
+            "events":has(body.pipelines[pipeline_name].queue.events_count) ? body.pipelines[pipeline_name].queue.events_count : [],
             "current_size":{
-              "bytes":body.pipelines[pipeline_name].queue.queue_size_in_bytes,
+              "bytes":has(body.pipelines[pipeline_name].queue.queue_size_in_bytes) ? body.pipelines[pipeline_name].queue.queue_size_in_bytes : [],
             },
             "max_size":{
-              "bytes":body.pipelines[pipeline_name].queue.max_queue_size_in_bytes,
+              "bytes":has(body.pipelines[pipeline_name].queue.max_queue_size_in_bytes) ? body.pipelines[pipeline_name].queue.max_queue_size_in_bytes : [],
             }
           }
         }
       })
-    )
-    ))
+    })
+    ))).collate("address")
     .as(pipelines, {
       "events":pipelines.map(pipeline, {"logstash":{"pipeline":pipeline}})})
