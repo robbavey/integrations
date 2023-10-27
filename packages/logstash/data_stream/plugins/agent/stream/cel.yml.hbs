@@ -52,7 +52,7 @@ program: |
     ))
      .as(events, events.map(event,
     {
-      "inputs":event.inputs.map(input,
+      "inputs":event.inputs.map(input, has(event.hash),
       {
         "name":event.name,
         "id":event.hash,
@@ -80,7 +80,7 @@ program: |
         }
       }.drop_empty()
       ),
-      "codecs":event.codecs.map(codec,
+      "codecs":event.codecs.map(codec, has(event.hash),
       {
         "name":event.name,
         "id":event.hash,
@@ -109,7 +109,7 @@ program: |
         }
       }.drop_empty()
       ),
-      "filters":event.filters.map(filter,
+      "filters":event.filters.map(filter, has(event.hash),
       {
         "name":event.name,
         "id":event.hash,
@@ -138,7 +138,7 @@ program: |
         }
       }.drop_empty()
       ),
-      "outputs":event.outputs.map(output,
+      "outputs":event.outputs.map(output, has(event.hash),
       {
         "name":event.name,
         "id":event.hash,
