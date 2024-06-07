@@ -8,7 +8,7 @@
   changes:
     - description: Add pipeline level worker utilization graphs, and remove incorrect flow metrics information
       type: enhancement
-      link: https://github.com/elastic/integrations/pull/xxx
+      link: https://github.com/elastic/integrations/pull/10107
 - version: "2.4.8"
   changes:
     - description: Add guard against empty graph returned by Logstash API
