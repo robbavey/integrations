@@ -58,8 +58,7 @@
                     "y": 0
                 },
                 "panelIndex": "231de1ff-a22e-495c-9c97-20b20592ac46",
-                "type": "visualization",
-                "version": "8.10.3"
+                "type": "visualization"
             },
             {
                 "embeddableConfig": {
@@ -76,6 +75,7 @@
                             "adHocDataViews": {},
                             "datasourceStates": {
                                 "formBased": {
+                                    "currentIndexPatternId": "logstash-sm-metrics",
                                     "layers": {
                                         "f589d4f8-9213-4405-a5cd-72e93d3e2594": {
                                             "columnOrder": [
@@ -162,7 +162,7 @@
                                                     "customLabel": true,
                                                     "dataType": "string",
                                                     "isBucketed": true,
-                                                    "label": "Node Name",
+                                                    "label": "Logstash Host Name",
                                                     "operationType": "terms",
                                                     "params": {
                                                         "exclude": [],
@@ -259,6 +259,7 @@
                                                 }
                                             },
                                             "incompleteColumns": {},
+                                            "indexPatternId": "logstash-sm-metrics",
                                             "sampling": 1
                                         }
                                     }
@@ -346,8 +347,7 @@
                 },
                 "panelIndex": "25758935-54d2-4161-a037-800740bee913",
                 "title": "Node Summary Table",
-                "type": "lens",
-                "version": "8.10.3"
+                "type": "lens"
             },
             {
                 "embeddableConfig": {
@@ -486,8 +486,7 @@
                 },
                 "panelIndex": "494716ff-128d-4a72-bf41-2f6f42dd5158",
                 "title": "Process CPU Utilization (%)",
-                "type": "lens",
-                "version": "8.10.3"
+                "type": "lens"
             },
             {
                 "embeddableConfig": {
@@ -726,8 +725,7 @@
                 },
                 "panelIndex": "5a8acef6-7a36-4854-b557-69db174670b4",
                 "title": "Persistent Queue utilization (%)",
-                "type": "lens",
-                "version": "8.10.3"
+                "type": "lens"
             },
             {
                 "embeddableConfig": {
@@ -905,8 +903,7 @@
                 },
                 "panelIndex": "a9970dca-d35d-4995-80aa-27d72da2cc33",
                 "title": "Load Average",
-                "type": "lens",
-                "version": "8.10.3"
+                "type": "lens"
             },
             {
                 "embeddableConfig": {
@@ -1078,8 +1075,7 @@
                 },
                 "panelIndex": "5af28ec8-a9f0-49cb-9627-e13c0ac5ca1d",
                 "title": "Persistent Queue size (events)",
-                "type": "lens",
-                "version": "8.10.3"
+                "type": "lens"
             },
             {
                 "embeddableConfig": {
@@ -1248,8 +1244,7 @@
                 },
                 "panelIndex": "71538b79-3608-4191-b3eb-0f898b7d7a3b",
                 "title": "CGroup CFS Stats",
-                "type": "lens",
-                "version": "8.10.3"
+                "type": "lens"
             },
             {
                 "embeddableConfig": {
@@ -1423,8 +1418,7 @@
                 },
                 "panelIndex": "92979e91-3f35-4715-b97a-f088bb2eae51",
                 "title": "Number of File Descriptors",
-                "type": "lens",
-                "version": "8.10.3"
+                "type": "lens"
             },
             {
                 "embeddableConfig": {
@@ -1593,8 +1587,7 @@
                 },
                 "panelIndex": "c6fb1dc0-c51d-4c00-903c-d90ad3b77ce1",
                 "title": "CGroup Cpu Performance (ns)",
-                "type": "lens",
-                "version": "8.10.3"
+                "type": "lens"
             },
             {
                 "embeddableConfig": {
@@ -1750,8 +1743,7 @@
                 },
                 "panelIndex": "f2fcf8cd-8ef3-42b8-b90b-d113c5e92360",
                 "title": "Number of Java Threads",
-                "type": "lens",
-                "version": "8.10.3"
+                "type": "lens"
             }
         ],
         "timeRestore": false,
@@ -1759,7 +1751,7 @@
         "version": 1
     },
     "coreMigrationVersion": "8.8.0",
-    "created_at": "2024-06-05T19:53:56.470Z",
+    "created_at": "2024-06-12T20:23:05.081Z",
     "id": "logstash-a42d7060-45e6-11ee-957b-3720c0b0fbc5",
     "managed": false,
     "references": [
