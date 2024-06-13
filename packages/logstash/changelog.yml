@@ -3,7 +3,7 @@
   changes:
     - description: Do something
       type: bugfix
-      link: https://github.com/elastic/integrations/pull/xxx
+      link: https://github.com/elastic/integrations/pull/1111
 - version: "2.4.9"
   changes:
     - description: Add pipeline level worker utilization graphs, and remove incorrect flow metrics information
